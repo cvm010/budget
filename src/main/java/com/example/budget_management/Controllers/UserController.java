@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
     @Autowired
     private Service service;
 
@@ -28,21 +27,19 @@ public class UserController {
         return service.saveUser(user);
     }
 
-    @PostMapping
-    public User updateUserCategory(@PathVariable int id, @PathVariable String category){
-        User user = service.getUserById(id);
-        if(user!=null){
-            user.category = category;
-            user= this.createUser(user);
-        }
-        return user;
-    }
+//    @PostMapping
+//    public User updateUserCategory(@PathVariable int id, @PathVariable String category){
+//        User user = service.getUserById(id);
+//        if(user!=null){
+//            user.category = category;
+//            user= this.createUser(user);
+//        }
+//        return user;
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id){
         service.deleteUser(id);
     }
-
-
 
 }
